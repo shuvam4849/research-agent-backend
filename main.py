@@ -48,20 +48,26 @@ except ImportError as e:
 # ---------------------------------------------------------------------------
 app = FastAPI(title="Vidhyaarthi Hybrid Search API", version="3.0")
 
+# app.add_middleware(
+ #   CORSMiddleware,
+   # allow_origins=[
+    #    "http://localhost:5173",
+     #   "http://localhost:3000",
+     #   "http://127.0.0.1:5173",
+      #  "http://127.0.0.1:3000",
+      #  "https://vidhyaarthi.vercel.app",
+    #],
+    #allow_credentials=True,
+    #allow_methods=["*"],
+   # allow_headers=["*"],
+#)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:3000",
-        "https://vidhyaarthi.vercel.app",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,  # Must be False with "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ---------------------------------------------------------------------------
 # Models
 # ---------------------------------------------------------------------------
